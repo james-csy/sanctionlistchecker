@@ -1,5 +1,8 @@
 # sanctionlistchecker
 
+Building a tool to check if companies/people are on the US Sanction list
+
+
 ```mermaid
 timeline
     title Product Development
