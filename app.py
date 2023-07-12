@@ -22,12 +22,15 @@ def importSanctionList():
 @app.route('/search')
 def SearchSanctionList():
     scores = {}
+    high_scores = {}
     for name in readSanctionList():
          try:
-            scores[str(name)] = fuzz.partial_ratio(name, "john doe")
+            scores[str(name)] = fuzz.partial_ratio(name, "VINALES")
+            if scores[str(name)] > 80:
+                high_scores[str(name)] = scores[str(name)]
          except:
             scores[str(name)] = 0
-    return scores
+    return high_scores
 
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', port=5000, debug=True)
