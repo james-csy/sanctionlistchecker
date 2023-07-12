@@ -29,7 +29,7 @@ def searchSanction(nameToSearch):
                 high_scores[str(name)] = scores[str(name)]
          except:
             scores[str(name)] = 0
-    return high_scores
+    return dict(sorted(high_scores.items(), key=lambda item: item[1], reverse=True))
 
 @app.route('/')
 def importSanctionList():
