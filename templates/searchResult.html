@@ -1,0 +1,21 @@
+<h2>Sanction Name Search - {{result.nameToSearch}}</h2>
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Similarity Score</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for key, value in high_scores.items() %}
+     <tr>
+         <td> {{ key }} </td>
+         <td> {{ value }} </td>
+     </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+<br>
+<a href="/searchName" target="_blank">Search Again</a>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from thefuzz import fuzz
 import csv
 from forms import SanctionSearch
@@ -17,27 +17,32 @@ def readSanctionList():
             #print(f'Processed {line_count} lines.')
         return names
 
-@app.route('/')
-def importSanctionList():
-    return readSanctionList()
 
-@app.route('/search')
-def searchSanction():
+#return names with the highest partial_ratio score
+def searchSanction(nameToSearch):
     scores = {}
     high_scores = {}
     for name in readSanctionList():
          try:
-            scores[str(name)] = fuzz.partial_ratio(name, "VINALES")
-            if scores[str(name)] > 80:
+            scores[str(name)] = fuzz.partial_ratio(name, nameToSearch)
+            if scores[str(name)] >= 80:
                 high_scores[str(name)] = scores[str(name)]
          except:
             scores[str(name)] = 0
     return high_scores
 
-@app.route('/searchName')
+@app.route('/')
+def importSanctionList():
+    return readSanctionList()
+
+@app.route('/searchName', methods = ['GET', 'POST'])
 def searchSanctionList():
     form = SanctionSearch()
-    return render_template("search.html", form=form)
+    if form.is_submitted():
+        result = request.form
+        high_scores = searchSanction(result["nameToSearch"])
+        return render_template("searchResult.html", result=result, high_scores = high_scores)
+    return render_template("inputName.html", form=form)
 
 
 
