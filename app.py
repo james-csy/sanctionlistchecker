@@ -1,4 +1,5 @@
 from flask import Flask
+from thefuzz import fuzz
 import csv
 
 app = Flask(__name__)
@@ -20,9 +21,13 @@ def importSanctionList():
 
 @app.route('/search')
 def SearchSanctionList():
-    inSanctionList = False
-    return str(inSanctionList)
-
+    scores = {}
+    for name in readSanctionList():
+         try:
+            scores[str(name)] = fuzz.partial_ratio(name, "john doe")
+         except:
+            scores[str(name)] = 0
+    return scores
 
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', port=5000, debug=True)
