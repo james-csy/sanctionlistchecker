@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from thefuzz import fuzz
 import csv
-from forms import SanctionSearch
+from forms import SanctionSearch, SanctionSearchList
 
 
 app = Flask(__name__)
@@ -45,6 +45,16 @@ def searchSanctionList():
         high_scores, upperName= searchSanction(result["nameToSearch"])
         return render_template("searchResult.html", result=result, high_scores = high_scores, upperName = upperName)
     return render_template("inputName.html", form=form)
+
+
+@app.route('/searchText', methods = ['GET', 'POST'])
+def searchSanctionText():
+    form = SanctionSearchList()
+    if form.is_submitted():
+        result = request.form
+        high_scores, upperName= searchSanction(result["textToSearch"])
+        return render_template("searchResult.html", result=result, high_scores = high_scores, upperName = upperName)
+    return render_template("inputText.html", form=form)
 
 
 
