@@ -58,9 +58,11 @@ def searchSanctionList():
 @app.route('/searchText', methods = ['GET', 'POST'])
 def searchSanctionText():
     form = SanctionSearchList()
+
     if form.is_submitted():
         result = request.form
-        return render_template("manySearchResult.html", result=result, scores = searchSanctionMany(["vinales", "james", "alex"]))
+        print(result["textToSearch"].split(" "))
+        return render_template("manySearchResult.html", result=result, scores = searchSanctionMany(result["textToSearch"].split(" ")))
     return render_template("inputText.html", form=form)
 
 
