@@ -35,7 +35,7 @@ def searchSanction(nameToSearch):
 
 @app.route('/')
 def importSanctionList():
-    return readSanctionList()
+    return render_template("allSanctioned.html", names = readSanctionList())
 
 @app.route('/searchName', methods = ['GET', 'POST'])
 def searchSanctionList():
