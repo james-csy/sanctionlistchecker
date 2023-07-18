@@ -8,14 +8,20 @@
         <th>3rd Closest Match & Score</th>
         <th>4th Closest Match & Score</th>
         <th>5th Closest Match & Score</th>
+        <th>6th Closest Match & Score</th>
       </tr>
     </thead>
     <tbody>
     {% for key, value in scores.items() %}
      <tr>
          <td> {{ key }} </td>
-
-         <td> {{ value["scores"]}} </td>
+         {% for name, score in value["scores"].items() %}
+         <td>
+          Score: {{score}}
+          <br>
+          Searched Name: {{name}}
+          </td>
+         {% endfor %}
 
      </tr>
     {% endfor %}

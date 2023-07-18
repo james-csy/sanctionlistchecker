@@ -27,7 +27,7 @@ def searchSanction(nameToSearch):
     for name in readSanctionList():
          try:
             scores[str(name)] = fuzz.partial_ratio(name, upperName)
-            if scores[str(name)] >= 80:
+            if scores[str(name)] >= 90:
                 high_scores[str(name)] = scores[str(name)]
          except:
             scores[str(name)] = 0
