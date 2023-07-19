@@ -45,6 +45,7 @@ def searchSanctionMany(namesToSearch):
 def importSanctionList():
     return render_template("allSanctioned.html", names = readSanctionList())
 
+#route to search individual name
 @app.route('/searchName', methods = ['GET', 'POST'])
 def searchSanctionList():
     form = SanctionSearch()
@@ -55,6 +56,7 @@ def searchSanctionList():
     return render_template("inputName.html", form=form)
 
 
+#route to search multiple people - seperates by whitespace
 @app.route('/searchText', methods = ['GET', 'POST'])
 def searchSanctionText():
     form = SanctionSearchList()
