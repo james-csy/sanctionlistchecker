@@ -24,22 +24,25 @@ def searchSanction(nameToSearch):
     print(upperName)
     scores = {}
     high_scores = {}
+    flag = False
     for name in readSanctionList():
          try:
             scores[str(name)] = fuzz.partial_ratio(name, upperName)
             if scores[str(name)] >= 90:
                 high_scores[str(name)] = scores[str(name)]
+                flag = True
          except:
             scores[str(name)] = 0
-    return dict(sorted(high_scores.items(), key=lambda item: item[1], reverse=True))
+    return dict(sorted(high_scores.items(), key=lambda item: item[1], reverse=True)), flag
 
 #returns dictionary in dictionary of all names that want to be searched and their relevant scores
 def searchSanctionMany(namesToSearch):
-    scores = {}
+    searchResult = {}
     for name in namesToSearch:
-        scores[name] = {"scores": searchSanction(name)}
+        sanctionResult, flag = searchSanction(name)
+        searchResult[name] = {"scores": sanctionResult, "flag":flag}
         #add if highest score greater than x value, True (or flag)
-    return scores
+    return searchResult
 
 @app.route('/')
 def importSanctionList():
@@ -51,8 +54,8 @@ def searchSanctionList():
     form = SanctionSearch()
     if form.is_submitted():
         result = request.form
-        high_scores = searchSanction(result["nameToSearch"])
-        return render_template("searchResult.html", result=result, high_scores = high_scores)
+        high_scores, flag = searchSanction(result["nameToSearch"])
+        return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
     return render_template("inputName.html", form=form)
 
 
@@ -64,7 +67,7 @@ def searchSanctionText():
     if form.is_submitted():
         result = request.form
         print(result["textToSearch"].split(" "))
-        return render_template("manySearchResult.html", result=result, scores = searchSanctionMany(result["textToSearch"].split(" ")))
+        return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(result["textToSearch"].split(" ")))
     return render_template("inputText.html", form=form)
 
 
