@@ -30,7 +30,7 @@ def searchSanction(nameToSearch):
     flag = False
     for name in readSanctionList():
          try:
-            scores[str(name)] = fuzz.partial_ratio(name, upperName)
+            scores[str(name)] = fuzz.token_set_ratio(name, upperName)
             if scores[str(name)] >= 90:
                 high_scores[str(name)] = scores[str(name)]
                 flag = True
