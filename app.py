@@ -31,7 +31,7 @@ def searchSanction(nameToSearch):
     for name in readSanctionList():
          try:
             scores[str(name)] = fuzz.token_set_ratio(name, upperName)
-            if scores[str(name)] >= 90:
+            if scores[str(name)] >= 80:
                 high_scores[str(name)] = scores[str(name)]
                 flag = True
          except:
@@ -50,7 +50,7 @@ def searchSanctionMany(namesToSearch):
 def readExcel():
     df = pd.read_excel(r'files/searchNames.xlsx')
     #print(type(df["Name"]))
-    return render_template("manySearchResult.html", searchResult = searchSanctionMany(df["Name"].to_numpy()))
+    return render_template("excelSearchResult.html", searchResult = searchSanctionMany(df["Name"].to_numpy()))
 
 
 @app.route('/')

@@ -1,0 +1,33 @@
+<h2>Sanction Name Search</h2>
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Flag</th>
+        <th>Closest Match & Score</th>
+        <th>2nd Closest Match & Score</th>
+        <th>3rd Closest Match & Score</th>
+        <th>4th Closest Match & Score</th>
+        <th>5th Closest Match & Score</th>
+        <th>6th Closest Match & Score</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for key, value in searchResult.items() %}
+     <tr>
+         <td> {{ key }} </td>
+         <td> {{ value["flag"] }} </td>
+         {% for name, score in value["scores"].items() %}
+         <td>
+          Score: {{score}}
+          <br>
+          Searched Name: {{name}}
+          </td>
+         {% endfor %}
+     </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+<br>
+<a href="/searchText" target="_self">Search Again</a>
+<a href="/" target="_self">View Sanction List</a>
