@@ -3,6 +3,9 @@ from thefuzz import fuzz
 import csv
 from forms import SanctionSearch, SanctionSearchList
 
+#import for excel file handling
+import pandas as pd
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "sanctionsearch"
@@ -44,6 +47,12 @@ def searchSanctionMany(namesToSearch):
         #add if highest score greater than x value, True (or flag)
     return searchResult
 
+def readExcel():
+    df = pd.read_excel(r'files/searchNames.xlsx')
+    #print(type(df["Name"]))
+    return render_template("manySearchResult.html", searchResult = searchSanctionMany(df["Name"].to_numpy()))
+
+
 @app.route('/')
 def importSanctionList():
     return render_template("allSanctioned.html", names = readSanctionList())
@@ -69,6 +78,11 @@ def searchSanctionText():
         print(result["textToSearch"].split(" "))
         return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(result["textToSearch"].split(" ")))
     return render_template("inputText.html", form=form)
+
+#route to test excel input
+@app.route('/excel')
+def searchExcel():
+    return readExcel()
 
 
 
