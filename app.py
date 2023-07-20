@@ -38,6 +38,16 @@ def searchSanction(nameToSearch):
             scores[str(name)] = 0
     return dict(sorted(high_scores.items(), key=lambda item: item[1], reverse=True)), flag
 
+#function to remove common words from search (e.g. "corporation" or "inc")
+def removeCommon(name):
+    with open("files/whitelist.txt") as f:
+        whitelist = [line for line in list(f)]
+    result = ""
+    for i in name.split(" "):
+        if i not in whitelist:
+            result += (i + " ")
+    return result
+
 #returns dictionary in dictionary of all names that want to be searched and their relevant scores
 def searchSanctionMany(namesToSearch):
     searchResult = {}
