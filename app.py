@@ -10,6 +10,10 @@ import pandas as pd
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "sanctionsearch"
 
+#define whitelist
+with open("files/whitelist.txt") as f:
+    whitelist = [str(line)[:-1] for line in list(f)]
+
 #extracts names from sanction lists and outputs list of names
 def readSanctionList():
         with open('files/sdn.csv', mode='r') as csv_file:
@@ -20,6 +24,13 @@ def readSanctionList():
             #print(f'Processed {line_count} lines.')
         return names
 
+#function to remove common words from search (e.g. "corporation" or "inc")
+def removeCommon(name):
+    result = ""
+    for i in name.split(" "):
+        if i not in whitelist:
+            result += (i + " ")
+    return result
 
 #return names with the highest partial_ratio score
 def searchSanction(nameToSearch):
@@ -30,7 +41,7 @@ def searchSanction(nameToSearch):
     flag = False
     for name in readSanctionList():
          try:
-            scores[str(name)] = fuzz.token_set_ratio(name, upperName)
+            scores[str(name)] = fuzz.token_set_ratio(name, removeCommon(upperName))
             if scores[str(name)] >= 80:
                 high_scores[str(name)] = scores[str(name)]
                 flag = True
@@ -38,15 +49,7 @@ def searchSanction(nameToSearch):
             scores[str(name)] = 0
     return dict(sorted(high_scores.items(), key=lambda item: item[1], reverse=True)), flag
 
-#function to remove common words from search (e.g. "corporation" or "inc")
-def removeCommon(name):
-    with open("files/whitelist.txt") as f:
-        whitelist = [line for line in list(f)]
-    result = ""
-    for i in name.split(" "):
-        if i not in whitelist:
-            result += (i + " ")
-    return result
+
 
 #returns dictionary in dictionary of all names that want to be searched and their relevant scores
 def searchSanctionMany(namesToSearch):
