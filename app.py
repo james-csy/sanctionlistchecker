@@ -72,11 +72,14 @@ def searchSanctionMany(namesToSearch):
         #add if highest score greater than x value, True (or flag)
     return searchResult
 
+#helper function for readExcel() that writes results to an excel file
 def writeExcel(df, path):
     with pd.ExcelWriter(path, mode = 'a', if_sheet_exists='replace') as writer:
         df.to_excel(writer, sheet_name="Sheet2")
     return "Success"
 
+
+#reads "Name" column of the given excel file and performs sanctionSearch on each name. returns a view of all names and their results
 def readExcel():
     df = pd.read_excel(r'files/searchNames.xlsx')
     
@@ -86,8 +89,29 @@ def readExcel():
     writeExcel(toExcel, "files/searchNames.xlsx")
     return render_template("excelSearchResult.html", searchResult = searchResult)
 
+#take inputs of excel file and names of columns and then perform a sanction search on everything relevant
+def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca = "Loss Location"):
+    try:
+        allNames = df[name].to_numpy()
+        namesResult = searchSanctionMany(allNames)
+    except:
+        return f"'{name}' is not a valid column name"
+    try:
+        allDesc = df[desc].to_numpy()
+        #input a search function here using spacey.io
+    except:
+        return f"'{desc}' is not a valid column name"
+    try:
+        allLoca = df[loca].to_numpy()
+        #input a search function here to compare against add.csv
+    except:
+        return f"'{loca}' is not a valid column name"
+    
+    return render_template("excelSearchResult.html", searchResult = namesResult)
 
 
+
+#shows a list of sanction names
 @app.route('/')
 def importSanctionList():
     return render_template("allSanctioned.html", names = readSanctionList())
@@ -120,6 +144,10 @@ def searchExcel():
     return readExcel()
     #return readExcel()
 
+@app.route('/excelAll')
+def searchAllExcel():
+    df = pd.read_excel(r'files/searchNames.xlsx')
+    return readMultipleExcelColumns(df)
 
 
 if __name__ == '__main__':
