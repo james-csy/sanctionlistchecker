@@ -17,8 +17,8 @@ import numpy as np
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "sanctionsearch"
 
-#define whitelist
-with open("files/whitelist.txt") as f:
+#define common words
+with open("files/common.txt") as f:
     whitelist = [str(line)[:-1] for line in list(f)]
 
 #extracts names from sanction lists and outputs list of names
@@ -34,24 +34,29 @@ def readSanctionList():
 #function to remove common words from search (e.g. "corporation" or "inc")
 def removeCommon(name):
     result = ""
+    common = ""
     for i in name.split(" "):
         if i not in whitelist:
             result += (i + " ")
-    return result
+        else:
+            common += (i + " ")
+    return result, common
 
 #return names with the highest partial_ratio score
 def searchSanction(nameToSearch):
     upperName = nameToSearch.upper()
-    print(upperName)
+    cleanUpperName, common = removeCommon(upperName)
+    print(f"Name: {upperName}, Common: {common}")
     scores = {}
     high_scores = {}
     flag = False
     for name in readSanctionList():
          try:
-            scores[str(name)] = fuzz.token_set_ratio(name, removeCommon(upperName))
+            scores[str(name)] = fuzz.token_set_ratio(name, cleanUpperName)
             if scores[str(name)] >= 80:
-                high_scores[str(name)] = scores[str(name)]
-                flag = True
+                if common == "" or fuzz.token_set_ratio(name, upperName) > 50:
+                    high_scores[str(name)] = scores[str(name)]
+                    flag = True
          except:
             scores[str(name)] = 0
     return dict(sorted(high_scores.items(), key=lambda item: item[1], reverse=True)), flag
