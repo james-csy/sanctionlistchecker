@@ -1,0 +1,19 @@
+<h2>Upload Excel File and Input Label/Column Names</h2>
+<form action="" method="post">
+    <p>
+        {{form.nameLabel.label}}
+        <br>
+        {{form.nameLabel(size=30)}}
+    </p>
+    <p>
+        {{form.descLabel.label}}
+        <br>
+        {{form.descLabel(size=30)}}
+    </p>
+    <p>
+        {{form.locaLabel.label}}
+        <br>
+        {{form.locaLabel(size=30)}}
+    </p>
+    <p>{{form.submit()}}</p>
+</form>

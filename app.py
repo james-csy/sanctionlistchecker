@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from thefuzz import fuzz
 import csv
-from forms import SanctionSearch, SanctionSearchList
+from forms import SanctionSearch, SanctionSearchList, ExcelUploadWithLabels
 
 #import for excel file handling
 import pandas as pd
@@ -146,6 +146,13 @@ def searchExcel():
 
 @app.route('/excelAll')
 def searchAllExcel():
+    form = ExcelUploadWithLabels()
+
+    if form.is_submitted():
+        result = request.form
+        return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
+    return render_template("excelUpload.html", form=form)
+
     df = pd.read_excel(r'files/searchNames.xlsx')
     return readMultipleExcelColumns(df)
 
