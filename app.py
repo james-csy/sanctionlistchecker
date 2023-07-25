@@ -5,6 +5,13 @@ from forms import SanctionSearch, SanctionSearchList
 
 #import for excel file handling
 import pandas as pd
+from pandas import ExcelWriter
+from pandas import ExcelFile
+import numpy as np
+
+#import openpyxl
+
+
 
 
 app = Flask(__name__)
@@ -60,10 +67,20 @@ def searchSanctionMany(namesToSearch):
         #add if highest score greater than x value, True (or flag)
     return searchResult
 
+def writeExcel(df, path):
+    with pd.ExcelWriter(path, mode = 'a', if_sheet_exists='replace') as writer:
+        df.to_excel(writer, sheet_name="Sheet2")
+    return "Success"
+
 def readExcel():
     df = pd.read_excel(r'files/searchNames.xlsx')
+    
     #print(type(df["Name"]))
-    return render_template("excelSearchResult.html", searchResult = searchSanctionMany(df["Name"].to_numpy()))
+    searchResult = searchSanctionMany(df["Name"].to_numpy())
+    toExcel = pd.DataFrame(searchResult).T
+    writeExcel(toExcel, "files/searchNames.xlsx")
+    return render_template("excelSearchResult.html", searchResult = searchResult)
+
 
 
 @app.route('/')
@@ -96,6 +113,7 @@ def searchSanctionText():
 @app.route('/excel')
 def searchExcel():
     return readExcel()
+    #return readExcel()
 
 
 
