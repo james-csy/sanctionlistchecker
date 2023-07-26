@@ -100,7 +100,6 @@ def extractNamesFromDescriptions(descriptions):
     for d in descriptions:
         analyzer = nlp(d)
         for ent in analyzer.ents:
-            print(ent)
             if ent.label_ in ["Person", "ORG"]:
                 names += [ent.text]
             elif ent.label_ == "GPE":
@@ -112,24 +111,28 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
     namesResult = []
     descNames = []
     descLocations = []
+    allLoca = []
     try:
-        allNames = df[name].to_numpy()
+        #set function only keeps unique values
+        allNames = list(set(df[name].to_numpy()))
+        print(f"{len(allNames)} Companies & Names")
     except:
-        return f"'{name}' is not a valid column name"
+        print(f"'{name}' is not a valid column name")
     try:
-        allDesc = df[desc].to_numpy()
+        #set function only keeps unique values
+        allDesc = list(set(df[desc].to_numpy()))
         descNames, descLocations = extractNamesFromDescriptions(allDesc)
         print(descNames)
         print(descLocations)
     except:
-        return f"'{desc}' is not a valid column name"
+        print(f"'{name}' is not a valid column name")
     try:
         allLoca = df[loca].to_numpy()
         #input a search function here to compare against add.csv
     except:
-        return f"'{loca}' is not a valid column name"
+        print(f"'{name}' is not a valid column name")
     
-    return allNames, descNames, descLocations
+    return allNames, descNames, descLocations, allLoca
 
 #//--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -158,8 +161,8 @@ def searchAllExcel():
     if form.is_submitted():
         result = request.form
         excelUpload = form.upload.data
-        df = pd.read_excel(excelUpload)
-        allNames, descNames, descLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
+        df = pd.read_excel(excelUpload, result["sheetName"])
+        allNames, descNames, descLocations, allLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
         namesResult = searchSanctionMany(allNames)
         descNamesResult = searchSanctionMany(descNames)
         return render_template("excelSearchResult.html", namesResult = namesResult, descNamesResult = descNamesResult)

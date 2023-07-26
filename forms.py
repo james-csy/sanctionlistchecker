@@ -14,6 +14,7 @@ class SanctionSearchList(FlaskForm):
     submit = SubmitField("Submit")
 
 class ExcelUploadWithLabels(FlaskForm):
+    sheetName = StringField("Sheet Name")
     name = StringField("'Name' Header")
     desc = StringField("'Description' Header")
     loca = StringField("'Location' Header")
