@@ -11,8 +11,9 @@ from pandas import ExcelFile
 import numpy as np
 
 #import openpyxl
-
-
+#description import
+import spacy
+#from spacy import displacy
 
 
 app = Flask(__name__)
@@ -62,8 +63,6 @@ def searchSanction(nameToSearch):
             scores[str(name)] = 0
     return dict(sorted(high_scores.items(), key=lambda item: item[1], reverse=True)), flag
 
-
-
 #returns dictionary in dictionary of all names that want to be searched and their relevant scores
 def searchSanctionMany(namesToSearch):
     searchResult = {}
@@ -90,6 +89,22 @@ def readExcel():
     writeExcel(toExcel, "files/searchNames.xlsx")
     return render_template("excelSearchResult.html", searchResult = searchResult)
 
+
+#function that extracts names and locations from descriptions
+def extractNamesFromDescriptions(descriptions):
+    locations = []
+    names = []
+    nlp = spacy.load("en_core_web_sm")
+    for d in descriptions:
+        analyzer = nlp(d)
+        for ent in analyzer.ents:
+            if ent.label_ in ["Person", "ORG"]:
+                names += [ent.text]
+            elif ent.label_ == "GPE":
+                locations += [ent.text]
+    return names, locations
+
+
 #take inputs of excel file and names of columns and then perform a sanction search on everything relevant
 def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca = "Loss Location"):
     try:
@@ -99,6 +114,9 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
         return f"'{name}' is not a valid column name"
     try:
         allDesc = df[desc].to_numpy()
+        descNames, descLocations = extractNamesFromDescriptions(allDesc)
+        print(descNames)
+        print(descLocations)
         #input a search function here using spacey.io
     except:
         return f"'{desc}' is not a valid column name"
@@ -108,7 +126,7 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
     except:
         return f"'{loca}' is not a valid column name"
     
-    return namesResult
+    return namesResult, descNames, descLocations
 
 
 
@@ -154,7 +172,8 @@ def searchAllExcel():
         result = request.form
         excelUpload = form.upload.data
         df = pd.read_excel(excelUpload)
-        return render_template("excelSearchResult.html", searchResult = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"]))
+        searchResult, descNames, descLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
+        return render_template("excelSearchResult.html", searchResult = searchResult)
     return render_template("excelUpload.html", form=form)
 
 
