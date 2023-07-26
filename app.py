@@ -13,7 +13,7 @@ import numpy as np
 #import openpyxl
 #description import
 import spacy
-#from spacy import displacy
+from spacy import displacy
 
 
 app = Flask(__name__)
@@ -152,6 +152,16 @@ def home():
 @app.route('/sanctionList')
 def importSanctionList():
     return render_template("allSanctioned.html", names = readSanctionList())
+
+#shows a list of sanction names
+@app.route('/displacy')
+def displacyTest():
+    text = "When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously."
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(text)
+    html = displacy.render(doc, style="ent", page=False)
+    print(type(html))
+    return html
 
 #accepts excel file upload and returns sanction search on values in the uploaded file
 @app.route('/excel', methods = ['GET', 'POST'])
