@@ -114,7 +114,6 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
     descLocations = []
     try:
         allNames = df[name].to_numpy()
-        namesResult = searchSanctionMany(allNames)
     except:
         return f"'{name}' is not a valid column name"
     try:
@@ -130,7 +129,7 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
     except:
         return f"'{loca}' is not a valid column name"
     
-    return namesResult, descNames, descLocations
+    return allNames, descNames, descLocations
 
 #//--------------------------------------------------------------------------------------------------------------------------------------
 
@@ -160,8 +159,10 @@ def searchAllExcel():
         result = request.form
         excelUpload = form.upload.data
         df = pd.read_excel(excelUpload)
-        searchResult, descNames, descLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
-        return render_template("excelSearchResult.html", searchResult = searchResult)
+        allNames, descNames, descLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
+        namesResult = searchSanctionMany(allNames)
+        descNamesResult = searchSanctionMany(descNames)
+        return render_template("excelSearchResult.html", namesResult = namesResult, descNamesResult = descNamesResult)
     return render_template("excelUpload.html", form=form)
 
 #route to search multiple people - seperates by whitespace
