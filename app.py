@@ -144,17 +144,17 @@ def searchExcel():
     return readExcel()
     #return readExcel()
 
-@app.route('/excelAll')
+@app.route('/excelAll', methods = ['GET', 'POST'])
 def searchAllExcel():
     form = ExcelUploadWithLabels()
 
     if form.is_submitted():
         result = request.form
-        return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
+        df = pd.read_excel(r'files/searchNames.xlsx')
+        return readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
+        #return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
     return render_template("excelUpload.html", form=form)
-
-    df = pd.read_excel(r'files/searchNames.xlsx')
-    return readMultipleExcelColumns(df)
+    #return readMultipleExcelColumns(df)
 
 
 if __name__ == '__main__':
