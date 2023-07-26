@@ -1,5 +1,10 @@
 <h2>Upload Excel File and Input Label/Column Names</h2>
-<form action="" method="post">
+<form action="" method="POST" enctype="multipart/form-data">
+    <p>
+        {{form.upload.label}}
+        <br>
+        {{form.upload(size=30)}}
+    </p>
     <p>
         {{form.name.label}}
         <br>

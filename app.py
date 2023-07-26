@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from thefuzz import fuzz
 import csv
 from forms import SanctionSearch, SanctionSearchList, ExcelUploadWithLabels
+from werkzeug.utils import secure_filename
 
 #import for excel file handling
 import pandas as pd
@@ -150,9 +151,19 @@ def searchAllExcel():
 
     if form.is_submitted():
         result = request.form
-        df = pd.read_excel(r'files/searchNames.xlsx')
+        excelUpload = form.upload.data
+        df = pd.read_excel(excelUpload)
         return readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
         #return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
+        """
+        if form.validate_on_submit():
+        f = form.photo.data
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(
+            app.instance_path, 'photos', filename
+        ))
+        return redirect(url_for('index'))
+        """
     return render_template("excelUpload.html", form=form)
     #return readMultipleExcelColumns(df)
 
