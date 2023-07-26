@@ -108,7 +108,7 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
     except:
         return f"'{loca}' is not a valid column name"
     
-    return render_template("excelSearchResult.html", searchResult = namesResult)
+    return namesResult
 
 
 
@@ -145,6 +145,7 @@ def searchExcel():
     return readExcel()
     #return readExcel()
 
+#accepts excel file upload and returns sanction search on values in the uploaded file
 @app.route('/excelAll', methods = ['GET', 'POST'])
 def searchAllExcel():
     form = ExcelUploadWithLabels()
@@ -153,19 +154,8 @@ def searchAllExcel():
         result = request.form
         excelUpload = form.upload.data
         df = pd.read_excel(excelUpload)
-        return readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
-        #return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
-        """
-        if form.validate_on_submit():
-        f = form.photo.data
-        filename = secure_filename(f.filename)
-        f.save(os.path.join(
-            app.instance_path, 'photos', filename
-        ))
-        return redirect(url_for('index'))
-        """
+        return render_template("excelSearchResult.html", searchResult = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"]))
     return render_template("excelUpload.html", form=form)
-    #return readMultipleExcelColumns(df)
 
 
 if __name__ == '__main__':
