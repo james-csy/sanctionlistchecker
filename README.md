@@ -1,6 +1,6 @@
 # sanctionlistchecker
 
-Building a tool to check if companies/people are on the US Sanction list
+Building a tool to check if companies/people within an uploaded Excel file are on the US Sanction list
 
 
 ```mermaid
