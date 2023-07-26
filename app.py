@@ -19,6 +19,10 @@ import spacy
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "sanctionsearch"
 
+#//--------------------------------------------------------------------------------------------------------------------------------------
+
+#? Helper Functions
+
 #define common words
 with open("files/common.txt") as f:
     whitelist = [str(line)[:-1] for line in list(f)]
@@ -78,7 +82,6 @@ def writeExcel(df, path):
         df.to_excel(writer, sheet_name="Sheet2")
     return "Success"
 
-
 #reads "Name" column of the given excel file and performs sanctionSearch on each name. returns a view of all names and their results
 def readExcel():
     df = pd.read_excel(r'files/searchNames.xlsx')
@@ -89,7 +92,6 @@ def readExcel():
     writeExcel(toExcel, "files/searchNames.xlsx")
     return render_template("excelSearchResult.html", searchResult = searchResult)
 
-
 #function that extracts names and locations from descriptions
 def extractNamesFromDescriptions(descriptions):
     locations = []
@@ -98,15 +100,18 @@ def extractNamesFromDescriptions(descriptions):
     for d in descriptions:
         analyzer = nlp(d)
         for ent in analyzer.ents:
+            print(ent)
             if ent.label_ in ["Person", "ORG"]:
                 names += [ent.text]
             elif ent.label_ == "GPE":
                 locations += [ent.text]
     return names, locations
 
-
 #take inputs of excel file and names of columns and then perform a sanction search on everything relevant
 def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca = "Loss Location"):
+    namesResult = []
+    descNames = []
+    descLocations = []
     try:
         allNames = df[name].to_numpy()
         namesResult = searchSanctionMany(allNames)
@@ -117,7 +122,6 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
         descNames, descLocations = extractNamesFromDescriptions(allDesc)
         print(descNames)
         print(descLocations)
-        #input a search function here using spacey.io
     except:
         return f"'{desc}' is not a valid column name"
     try:
@@ -128,23 +132,37 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
     
     return namesResult, descNames, descLocations
 
+#//--------------------------------------------------------------------------------------------------------------------------------------
 
-
-#shows a list of sanction names
-@app.route('/')
-def importSanctionList():
-    return render_template("allSanctioned.html", names = readSanctionList())
+#? Routes for Website
 
 #route to search individual name
-@app.route('/searchName', methods = ['GET', 'POST'])
-def searchSanctionList():
+@app.route('/', methods = ['GET', 'POST'])
+def home():
     form = SanctionSearch()
     if form.is_submitted():
         result = request.form
         high_scores, flag = searchSanction(result["nameToSearch"])
         return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
-    return render_template("inputName.html", form=form)
+    return render_template("home.html", form=form)
 
+#shows a list of sanction names
+@app.route('/sanctionList')
+def importSanctionList():
+    return render_template("allSanctioned.html", names = readSanctionList())
+
+#accepts excel file upload and returns sanction search on values in the uploaded file
+@app.route('/excel', methods = ['GET', 'POST'])
+def searchAllExcel():
+    form = ExcelUploadWithLabels()
+
+    if form.is_submitted():
+        result = request.form
+        excelUpload = form.upload.data
+        df = pd.read_excel(excelUpload)
+        searchResult, descNames, descLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
+        return render_template("excelSearchResult.html", searchResult = searchResult)
+    return render_template("excelUpload.html", form=form)
 
 #route to search multiple people - seperates by whitespace
 @app.route('/searchText', methods = ['GET', 'POST'])
@@ -158,24 +176,15 @@ def searchSanctionText():
     return render_template("inputText.html", form=form)
 
 #route to test excel input
-@app.route('/excel')
+@app.route('/excelTest')
 def searchExcel():
     return readExcel()
     #return readExcel()
 
-#accepts excel file upload and returns sanction search on values in the uploaded file
-@app.route('/excelAll', methods = ['GET', 'POST'])
-def searchAllExcel():
-    form = ExcelUploadWithLabels()
 
-    if form.is_submitted():
-        result = request.form
-        excelUpload = form.upload.data
-        df = pd.read_excel(excelUpload)
-        searchResult, descNames, descLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
-        return render_template("excelSearchResult.html", searchResult = searchResult)
-    return render_template("excelUpload.html", form=form)
+#//--------------------------------------------------------------------------------------------------------------------------------------
 
+#? Code to run app.py
 
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', port=5000, debug=True)
