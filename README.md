@@ -12,6 +12,6 @@ timeline
     July 19th 2023: Added flag/not flagged functionality: Excel Input from files
     July 20th 2023: Started on removing common words in search (e.g. incorporation, company)
     July 21-25th 2023: Added common word screening as a second search filter: Read and write to Excel file implemented
-    July 26th 2023: Added Excel Header Input: Excel File Upload is functional: Implemented spaCy (NLP) to extract names, organizations, and locations
-    To-Do - Create Algo to search sanction list locations: make it look less ugly (bootstrap or equivalent): add address and country cross-referencing
+    July 26th 2023: Added Excel Header Input: Excel File Upload is functional: Implemented spaCy (NLP) to extract names, organizations, and locations: Names & Organizations (from descriptions) are searched
+    To-Do - Design view for full excel search (potentially with displacy): Create Algo to search sanction list locations: make it look less ugly (bootstrap or equivalent): add address and country cross-referencing
 ```
