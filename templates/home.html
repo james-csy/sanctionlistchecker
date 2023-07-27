@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 {% block title %} Sanction Search Tool {% endblock %}
 {% block content %}
-<h2>Search Name</h2>
+<div class="container">
+    <br>
+    <h2>Search Name</h2>
 
-<form action="" method="post">
-    {{ form.hidden_tag() }}
-    <div class="mb-3">
-        {{form.nameToSearch.label(class="form-label")}}
-        <br>
-        {{form.nameToSearch(size=30, class="form-control")}}
-    </div>
-    <button type="submit" class="btn btn-primary" for = form.submit>Search</button>
-</form>
-<br>
-<a href="/excel" target="_self">Search an Excel File Instead</a>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{form.nameToSearch.label(class="form-label")}}
+            <br>
+            {{form.nameToSearch(size=30, class="form-control")}}
+        </div>
+        <button type="submit" class="btn btn-primary" for = form.submit>Search</button>
+    </form>
+    <br>
+    <a href="/excel" target="_self">Search an Excel File Instead</a>    
+</div>
+
 {% endblock %}
 

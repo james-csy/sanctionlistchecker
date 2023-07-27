@@ -1,67 +1,70 @@
-<h2>Sanction Name Search</h2>
-<h3>Result from Names Column</h3>
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Flag</th>
-        <th>Closest Match & Score</th>
-        <th>2nd Closest Match & Score</th>
-        <th>3rd Closest Match & Score</th>
-        <th>4th Closest Match & Score</th>
-        <th>5th Closest Match & Score</th>
-        <th>6th Closest Match & Score</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for key, value in namesResult.items() %}
-     <tr>
-         <td> {{ key }} </td>
-         <td> {{ value["flag"] }} </td>
-         {% for name, score in value["scores"].items() %}
-         <td>
-          Score: {{score}}
-          <br>
-          Searched Name: {{name}}
-          </td>
-         {% endfor %}
-     </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-<br>
+{% extends "base.html" %}
+{% block title %} Sanction Search Tool {% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h3>Result from Names Column</h3>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Flag</th>
+            <th>Closest Match & Score</th>
+            <th>2nd Closest Match & Score</th>
+            <th>3rd Closest Match & Score</th>
+            <th>4th Closest Match & Score</th>
+            <th>5th Closest Match & Score</th>
+            <th>6th Closest Match & Score</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for key, value in namesResult.items() %}
+        <tr>
+            <td> {{ key }} </td>
+            <td> {{ value["flag"] }} </td>
+            {% for name, score in value["scores"].items() %}
+            <td>
+              Score: {{score}}
+              <br>
+              Searched Name: {{name}}
+              </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    <br>
 
-<h3>Result from Names extracted from Description Column</h3>
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Flag</th>
-        <th>Closest Match & Score</th>
-        <th>2nd Closest Match & Score</th>
-        <th>3rd Closest Match & Score</th>
-        <th>4th Closest Match & Score</th>
-        <th>5th Closest Match & Score</th>
-        <th>6th Closest Match & Score</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for key, value in descNamesResult.items() %}
-     <tr>
-         <td> {{ key }} </td>
-         <td> {{ value["flag"] }} </td>
-         {% for name, score in value["scores"].items() %}
-         <td>
-          Score: {{score}}
-          <br>
-          Searched Name: {{name}}
-          </td>
-         {% endfor %}
-     </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-<br>
+    <h3>Result from Names extracted from Description Column</h3>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Flag</th>
+            <th>Closest Match & Score</th>
+            <th>2nd Closest Match & Score</th>
+            <th>3rd Closest Match & Score</th>
+            <th>4th Closest Match & Score</th>
+            <th>5th Closest Match & Score</th>
+            <th>6th Closest Match & Score</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for key, value in descNamesResult.items() %}
+        <tr>
+            <td> {{ key }} </td>
+            <td> {{ value["flag"] }} </td>
+            {% for name, score in value["scores"].items() %}
+            <td>
+              Score: {{score}}
+              <br>
+              Searched Name: {{name}}
+              </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</div>
 
-<a href="/excel" target="_self">Search Again</a>
-<a href="/sanctionList" target="_self">View Sanction List</a>
+{% endblock %}

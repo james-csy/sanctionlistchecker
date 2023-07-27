@@ -1,20 +1,29 @@
-<h2>Sanction Name Search - {{result.nameToSearch}}</h2>
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Similarity Score</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for key, value in high_scores.items() %}
-     <tr>
-         <td> {{ key }} </td>
-         <td> {{ value }} </td>
-     </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-<br>
-<a href="/" target="_self">Search Again</a>
-<a href="/sanctionList" target="_self">View Sanction List</a>
+{% extends "base.html" %}
+{% block title %} Sanction Search Tool {% endblock %}
+{% block content %}
+<div class="container">
+  <br>
+  <h2>Sanction Name Search - {{result.nameToSearch}}</h2>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Similarity Score</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for key, value in high_scores.items() %}
+       <tr>
+           <td> {{ key }} </td>
+           <td> {{ value }} </td>
+       </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  <br>
+  <a href="/" target="_self">Search Again</a>
+  <a href="/sanctionList" target="_self">View Sanction List</a>
+</div>
+
+{% endblock %}
+

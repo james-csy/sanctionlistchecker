@@ -1,30 +1,39 @@
-<h2>Upload Excel File and Input Label/Column Names</h2>
-<form action="" method="POST" enctype="multipart/form-data">
-    <p>
-        {{form.upload.label}}
-        <br>
-        {{form.upload(size=30)}}
-    </p>
-    <p>
-        {{form.sheetName.label}}
-        <br>
-        {{form.sheetName(size=30)}}
-    </p>
+{% extends "base.html" %}
+{% block title %} Sanction Search Tool {% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Upload Excel File and Input Label/Column Names</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{form.upload.label(class="form-label")}}
+            <br>
+            {{form.upload(size=30, class="form-control")}}
+        </div>
+        <div class="mb-3">
+            {{form.sheetName.label(class="form-label")}}
+            <br>
+            {{form.sheetName(size=30, class="form-control")}}
+        </div>
+        <div class="mb-3">
+            {{form.name.label(class="form-label")}}
+            <br>
+            {{form.name(size=30, class="form-control")}}
+        </div>
+        <div class="mb-3">
+            {{form.desc.label(class="form-label")}}
+            <br>
+            {{form.desc(size=30, class="form-control")}}
+        </div>
+        <div class="mb-3">
+            {{form.loca.label(class="form-label")}}
+            <br>
+            {{form.loca(size=30, class="form-control")}}
+        </div>
+        <button type="submit" class="btn btn-primary" for = form.submit>Search</button>
+    </form>
+</div>
 
-    <p>
-        {{form.name.label}}
-        <br>
-        {{form.name(size=30)}}
-    </p>
-    <p>
-        {{form.desc.label}}
-        <br>
-        {{form.desc(size=30)}}
-    </p>
-    <p>
-        {{form.loca.label}}
-        <br>
-        {{form.loca(size=30)}}
-    </p>
-    <p>{{form.submit()}}</p>
-</form>
+{% endblock %}
+

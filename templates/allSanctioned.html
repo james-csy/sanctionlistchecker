@@ -1,17 +1,24 @@
-<h2>Sanction List</h2>
-<a href="/searchName" target="_self">Search Name</a>
-<table>
-    <thead>
+{% extends "base.html" %}
+{% block title %} Sanction Search Tool {% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h2>OFAC Sanction List</h2>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for name in names %}
       <tr>
-        <th>Name</th>
+          <td> {{ name }} </td>
       </tr>
-    </thead>
-    <tbody>
-    {% for name in names %}
-     <tr>
-         <td> {{ name }} </td>
-     </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-<br>
+      {% endfor %}
+      </tbody>
+    </table>   
+</div>
+
+{% endblock %}
+
