@@ -138,9 +138,9 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
 
 #? Routes for Website
 #boostrap test
-@app.route('/bootstrap', methods = ['GET', 'POST'])
+@app.route('/bootsrap', methods = ['GET', 'POST'])
 def base():
-    return render_template("base.html")
+    return render_template("base.html", )
 
 
 #route to search individual name

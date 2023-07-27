@@ -1,9 +1,18 @@
-<h2>Search Text</h2>
-<form action="" method="post">
-    <p>
-        {{form.textToSearch.label}}
-        <br>
-        {{form.textToSearch(size=30)}}
-    </p>
-    <p>{{form.submit()}}</p>
-</form>
+{% extends "base.html" %}
+{% block title %} Sanction Search Tool {% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h2>Search Text</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{form.textToSearch.label(class="form-label")}}
+            <br>
+            {{form.textToSearch(size=30, class="form-control")}}
+        </div>
+        <button type="submit" class="btn btn-primary" for = form.submit>Search</button>
+    </form>
+</div>
+
+{% endblock %}

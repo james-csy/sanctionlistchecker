@@ -10,7 +10,7 @@ class SanctionSearch(FlaskForm):
 
 
 class SanctionSearchList(FlaskForm):
-    textToSearch = TextAreaField(u'Text', [validators.length(max=1000)])
+    textToSearch = TextAreaField(u'Text', [validators.length(max=10000)])
     submit = SubmitField("Submit")
 
 class ExcelUploadWithLabels(FlaskForm):
