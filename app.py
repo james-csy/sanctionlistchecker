@@ -119,6 +119,21 @@ def extractNamesFromSingleDescription(description):
             locations += [ent.text]
     return names, locations
 
+#function to output displacy view and sanction list search scores
+def displacyDescription(description):
+    nlp = spacy.load("en_core_web_sm")
+    analyzer = nlp(description)
+    html = displacy.render(analyzer, style="ent", page=False)
+    locations = []
+    names = []
+    for ent in analyzer.ents:
+        if ent.label_ in ["PERSON", "ORG"]:
+            names += [ent.text]
+        elif ent.label_ == "GPE":
+            locations += [ent.text]
+    return html, names, locations
+
+
 #take inputs of excel file and names of columns and then perform a sanction search on everything relevant
 def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca = "Loss Location"):
     namesResult = []
@@ -203,9 +218,9 @@ def searchSanctionText():
 
     if form.is_submitted():
         result = request.form
-        names, locations = extractNamesFromSingleDescription(result["textToSearch"])
+        html, names, locations = displacyDescription(result["textToSearch"])
         allToSearch = names + locations
-        return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(allToSearch))
+        return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(allToSearch), html=html)
     return render_template("inputText.html", form=form)
 
 #route to test excel input
