@@ -92,7 +92,7 @@ def readExcel():
     writeExcel(toExcel, "files/searchNames.xlsx")
     return render_template("excelSearchResult.html", searchResult = searchResult)
 
-#function that extracts names and locations from descriptions
+#function that extracts names and locations from list of descriptions
 def extractNamesFromDescriptions(descriptions):
     locations = []
     names = []
@@ -104,6 +104,19 @@ def extractNamesFromDescriptions(descriptions):
                 names += [ent.text]
             elif ent.label_ == "GPE":
                 locations += [ent.text]
+    return names, locations
+
+#function that extracts names and locations from list of descriptions
+def extractNamesFromSingleDescription(description):
+    locations = []
+    names = []
+    nlp = spacy.load("en_core_web_sm")
+    analyzer = nlp(description)
+    for ent in analyzer.ents:
+        if ent.label_ in ["Person", "ORG"]:
+            names += [ent.text]
+        elif ent.label_ == "GPE":
+            locations += [ent.text]
     return names, locations
 
 #take inputs of excel file and names of columns and then perform a sanction search on everything relevant
@@ -190,8 +203,9 @@ def searchSanctionText():
 
     if form.is_submitted():
         result = request.form
-        print(result["textToSearch"].split(" "))
-        return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(result["textToSearch"].split(" ")))
+        names, locations = extractNamesFromSingleDescription(result["textToSearch"])
+        allToSearch = names + locations
+        return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(allToSearch))
     return render_template("inputText.html", form=form)
 
 #route to test excel input
