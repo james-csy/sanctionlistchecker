@@ -15,5 +15,5 @@ timeline
     July 26th 2023: Added Excel Header Input: Excel File Upload is functional: Implemented spaCy (NLP) to extract names, organizations, and locations: Names & Organizations (from descriptions) are searched
     July 27th 2023: implemented bootstrap so UI is more intuitive: excel search basic functionality working
     July 28th 2023: Started description search tool: Implementing description visualization (display)
-    To-Do - : Create Algo to search sanction list locations: add address and country cross-referencing
+    To-Do - : Create Algo to search sanction list locations: add address and country cross-referencing: Add description visualization to excel search: Right documentation
 ```
