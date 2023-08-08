@@ -43,9 +43,16 @@ def updateSanctionList():
                 names.append(row[1]) #column index 1 contains NAME data
             except:
                 pass
+        with open('files/sdn.txt', 'w') as f:
+            for name in names:
+                f.write(name)
+                f.write('\n')
+
+def readUpdatedSanctionList():
+    with open("files/sdn.txt") as f:
+        names = [str(line)[:-1] for line in list(f)]
     return names
 
-#def readUpdatedSanctionList():
 
 
 #extracts names from sanction lists and outputs list of names
@@ -77,7 +84,7 @@ def searchSanction(nameToSearch):
     scores = {}
     high_scores = {}
     flag = False
-    for name in updateSanctionList():
+    for name in readUpdatedSanctionList():
          try:
             scores[str(name)] = fuzz.token_set_ratio(name, cleanUpperName)
             if scores[str(name)] >= 80:
@@ -222,7 +229,7 @@ def home():
 #shows a list of sanction names
 @app.route('/sanctionList')
 def importSanctionList():
-    return render_template("allSanctioned.html", names = updateSanctionList())
+    return render_template("allSanctioned.html", names = readUpdatedSanctionList())
 
 #displacy library test
 @app.route('/update')
