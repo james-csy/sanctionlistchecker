@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from thefuzz import fuzz
 import csv
+import requests
 from forms import SanctionSearch, SanctionSearchList, ExcelUploadWithLabels
 from werkzeug.utils import secure_filename
 
@@ -26,6 +27,26 @@ app.config['SECRET_KEY'] = "sanctionsearch"
 #define common words
 with open("files/common.txt") as f:
     whitelist = [str(line)[:-1] for line in list(f)]
+
+
+#updates OFAC sanctions list:
+def updateSanctionList():
+    csv_url = "https://www.treasury.gov/ofac/downloads/sdn.csv"
+    with requests.Session() as s:
+        download = s.get(csv_url)
+        decoded_content = download.content.decode('utf-8')
+        cr = csv.reader(decoded_content.splitlines(), delimiter=",")
+        my_list = list(cr)
+        names = []
+        for row in my_list:
+            try:
+                names.append(row[1]) #column index 1 contains NAME data
+            except:
+                pass
+    return names
+
+#def readUpdatedSanctionList():
+
 
 #extracts names from sanction lists and outputs list of names
 def readSanctionList():
@@ -56,7 +77,7 @@ def searchSanction(nameToSearch):
     scores = {}
     high_scores = {}
     flag = False
-    for name in readSanctionList():
+    for name in updateSanctionList():
          try:
             scores[str(name)] = fuzz.token_set_ratio(name, cleanUpperName)
             if scores[str(name)] >= 80:
@@ -134,8 +155,8 @@ def displacyDescription(description):
     return html, names, locations
 
 
-#take inputs of excel file and names of columns and then perform a sanction search on everything relevant
-def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca = "Loss Location"):
+#take inputs of excel file and names of columns and then perform a sanction search on everything relevant (this function used for /excel)
+def readMultipleExcelColumns(df, name = "Insured Name", desc = "Event Description", loca = "Loss Location"):
     namesResult = []
     descNames = []
     descLocations = []
@@ -162,14 +183,31 @@ def readMultipleExcelColumns(df, name = "Name", desc = "Event Description", loca
     
     return allNames, descNames, descLocations, allLoca
 
+#strictly returns columns of excel file - no additional functions (using this for excel alternative)
+def extractExcelColumns(df, name = "Insured Name", desc = "Event Description", loca = "Loss Location"):
+    nameColumn = []
+    descColumn= []
+    locaColumn = []
+    try:
+        #set function only keeps unique values
+        nameColumn = list(set(df[name].to_numpy()))
+    except:
+        print(f"'{name}' is not a valid column name")
+    try:
+        #set function only keeps unique values
+        descColumn = list(set(df[desc].to_numpy()))
+    except:
+        print(f"'{name}' is not a valid column name")
+    try:
+        locaColumn = df[loca].to_numpy()
+    except:
+        print(f"'{name}' is not a valid column name")
+    
+    return nameColumn, descColumn, locaColumn
+
 #//--------------------------------------------------------------------------------------------------------------------------------------
 
 #? Routes for Website
-#boostrap test
-@app.route('/bootsrap', methods = ['GET', 'POST'])
-def base():
-    return render_template("base.html", )
-
 
 #route to search individual name
 @app.route('/', methods = ['GET', 'POST'])
@@ -184,9 +222,21 @@ def home():
 #shows a list of sanction names
 @app.route('/sanctionList')
 def importSanctionList():
-    return render_template("allSanctioned.html", names = readSanctionList())
+    return render_template("allSanctioned.html", names = updateSanctionList())
 
-#shows a list of sanction names
+#displacy library test
+@app.route('/update')
+def update():
+    form = SanctionSearch()
+    updateSanctionList()
+    if form.is_submitted():
+        result = request.form
+        high_scores, flag = searchSanction(result["nameToSearch"])
+        return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
+    return render_template("home.html", form=form)
+
+
+#displacy library test
 @app.route('/displacy')
 def displacyTest():
     text = "When Sebastian Thrun started working on self-driving cars at Google in 2007, few people outside of the company took him seriously."
@@ -195,6 +245,19 @@ def displacyTest():
     html = displacy.render(doc, style="ent", page=False)
     print(type(html))
     return html
+
+#route to search multiple people - seperates by whitespace
+@app.route('/searchText', methods = ['GET', 'POST'])
+def searchSanctionText():
+    form = SanctionSearchList()
+
+    if form.is_submitted():
+        result = request.form
+        html, names, locations = displacyDescription(result["textToSearch"])
+        allToSearch = names + locations
+        return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(allToSearch), html=html)
+    return render_template("inputText.html", form=form)
+
 
 #accepts excel file upload and returns sanction search on values in the uploaded file
 @app.route('/excel', methods = ['GET', 'POST'])
@@ -211,21 +274,42 @@ def searchAllExcel():
         return render_template("excelSearchResult.html", namesResult = namesResult, descNamesResult = descNamesResult)
     return render_template("excelUpload.html", form=form)
 
-#route to search multiple people - seperates by whitespace
-@app.route('/searchText', methods = ['GET', 'POST'])
-def searchSanctionText():
-    form = SanctionSearchList()
+#excel but with displacy view for each description
+# create dictionary (Insured Name is primary key)
+# excel["Company Name"]["descriptions"] = ["description 1", "description 2", "description 3"]
+# excel["Company Name"]["flag"] = True/False
+# excel["Company Name"]["descriptionFlag"] = True/False
+
+@app.route('/excelAlternate')
+def excelAlternate():
+    form = ExcelUploadWithLabels()
 
     if form.is_submitted():
         result = request.form
-        html, names, locations = displacyDescription(result["textToSearch"])
-        allToSearch = names + locations
-        return render_template("manySearchResult.html", result=result, searchResult = searchSanctionMany(allToSearch), html=html)
-    return render_template("inputText.html", form=form)
+        excelUpload = form.upload.data
+        df = pd.read_excel(excelUpload, result["sheetName"])
+        names, descriptions, locations = extractExcelColumns(df)
+        organizedData = {}
+        for i in range(len(names)):
+            if names[i] not in organizedData:
+                organizedData[names[i]] = {"claims": [
+                    {"row":i,
+                     "description": descriptions[i],
+                     "location": locations[i]
+                     }],
+                     "nameFlagged": [searchSanction(names[i])]
+                     }
+            else:
+                organizedData[names[i]]["claims"].append({"d": descriptions[i], "l": locations[i]})
+            
+                
+            
+        allNames, descNames, descLocations, allLocations = readMultipleExcelColumns(df, result["name"], result["desc"], result["loca"])
+        namesResult = searchSanctionMany(allNames)
+        descNamesResult = searchSanctionMany(descNames)
+        return render_template("excelSearchResult.html", namesResult = namesResult, descNamesResult = descNamesResult)
+    return render_template("excelUpload.html", form=form)
 
-#route to test excel input
-@app.route('/excelTest')
-def searchExcel():
     return readExcel()
     #return readExcel()
 
@@ -236,4 +320,4 @@ def searchExcel():
 
 if __name__ == '__main__':
     #app.run(host='0.0.0.0', port=5000, debug=True)
-    app.run(debug=False)
+    app.run(debug=True)
