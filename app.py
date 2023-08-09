@@ -236,11 +236,7 @@ def importSanctionList():
 def update():
     form = SanctionSearch()
     updateSanctionList()
-    if form.is_submitted():
-        result = request.form
-        high_scores, flag = searchSanction(result["nameToSearch"])
-        return render_template("searchResult.html", result=result, high_scores = high_scores, flag=flag)
-    return render_template("home.html", form=form)
+    return render_template("update.html")
 
 
 #displacy library test
