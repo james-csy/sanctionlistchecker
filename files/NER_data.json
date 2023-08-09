@@ -1,0 +1,2019 @@
+{
+    "classes": [
+        "ORG",
+        "PERSON",
+        "GPE",
+        "LOC",
+        "VEHICLE"
+    ],
+    "annotations": [
+        [
+            "AMERICAN AIRLINES,US AIRWAYS,AIRCRAFT N953UW,EMBRAER E190 SUFFERED DMG WHILST LANDING,",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        18,
+                        28,
+                        "ORG"
+                    ],
+                    [
+                        38,
+                        44,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "AMERICAN AIRLINES, Aircraft Boeing 787 Regn N805AN suffered damage due to hail, Beijing, China",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        28,
+                        50,
+                        "VEHICLE"
+                    ],
+                    [
+                        80,
+                        94,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "AMERICAN AIRLINES, USAirways-250515, Damage to aircraft Airbus A320 N668AW due to hard landing ",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        56,
+                        74,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "AMERICAN AIRLINES,AIRCRAFT N917AN, 1999 B737-800,SUFFERED DMG DUE TO TAIL STRIKE,LAGUARDIA,NEW YORK.",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        27,
+                        33,
+                        "VEHICLE"
+                    ],
+                    [
+                        81,
+                        99,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "AMERICAN AIRLINES,FOD TO ENGINE DUE TO INGESTION OF BIRDS,",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "AMERICAN AIRLINES,AIRCRAFT N768AN,BOEING 777 SUFFERED DMG WHILE AWAITING CLEARANCE TO TAKE-OFF,",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        27,
+                        33,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "MALAYSIAN AIRLINE SYSTEM BERHAD, Aircarft B737-800, Reg 9M-MLT was hit by Miascor lavatory truck, MANILA",
+            {
+                "entities": [
+                    [
+                        0,
+                        31,
+                        "ORG"
+                    ],
+                    [
+                        42,
+                        50,
+                        "VEHICLE"
+                    ],
+                    [
+                        98,
+                        104,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "VIETNAM AIRLINES CORPORATION,AIRCRAFT A321-VNA608 HAD TAIL STRIKE DURING TAKE OFF,",
+            {
+                "entities": [
+                    [
+                        0,
+                        28,
+                        "ORG"
+                    ],
+                    [
+                        38,
+                        49,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "VIETNAM AIRLINES CORP,LOSS OF SAMSUNG SHIPMENT,NOI BAI,VIETNAMTO ROISSY,CHARLES DE GAULLE,",
+            {
+                "entities": [
+                    [
+                        0,
+                        21,
+                        "ORG"
+                    ],
+                    [
+                        47,
+                        54,
+                        "LOC"
+                    ],
+                    [
+                        72,
+                        89,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "DASSAULT FLACON 7X. HZ-SPAI,TRENT ENGINE S/N 41853 DMG TO MAIN GEAR BOX AND OIL SYSTEM,JEDDAH.",
+            {
+                "entities": [
+                    [
+                        87,
+                        93,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "SAUDI ARABIAN AIRLINES CORP,SAUDIA AIRCRAFT B-747 (HZ-A14) DMGD DURING MAINTENANCE TO HANGAR,JEDDAH.",
+            {
+                "entities": [
+                    [
+                        0,
+                        27,
+                        "ORG"
+                    ],
+                    [
+                        28,
+                        58,
+                        "VEHICLE"
+                    ],
+                    [
+                        93,
+                        99,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "SAUDI ARABIAN AIRLINES CORP,DMG TO FORWARD FLANGE OF FAN CASE GENX ENGINE S/N 959153,BRAZIL,",
+            {
+                "entities": [
+                    [
+                        0,
+                        27,
+                        "ORG"
+                    ],
+                    [
+                        85,
+                        91,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "EMIRATES GROUP,AINS-0292,DMG TO LH T/R DUCK (4 QUANTITY),",
+            {
+                "entities": [
+                    [
+                        0,
+                        14,
+                        "ORG"
+                    ],
+                    [
+                        15,
+                        24,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "CATHAY PACIFIC AIRWAYS LTD,INJURY TO LUK FUNG YEE,SINGAPORE TO HONG KONG.",
+            {
+                "entities": [
+                    [
+                        0,
+                        26,
+                        "ORG"
+                    ],
+                    [
+                        37,
+                        49,
+                        "PERSON"
+                    ],
+                    [
+                        50,
+                        59,
+                        "GPE"
+                    ],
+                    [
+                        63,
+                        72,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "CATHAY PACIFIC AIRWAYS LTD,DIVERSION OF FLIGHT CX884 DUE TO SMOKE IN THE CABIN,HONG KONG-LOS ANGELES,",
+            {
+                "entities": [
+                    [
+                        1,
+                        25,
+                        "ORG"
+                    ],
+                    [
+                        47,
+                        52,
+                        "VEHICLE"
+                    ],
+                    [
+                        79,
+                        88,
+                        "GPE"
+                    ],
+                    [
+                        89,
+                        100,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "FIN GROUP,JET2 2014/15 LIABILITY FUND FILE HELD BY CLYDE & CO.",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORG"
+                    ],
+                    [
+                        51,
+                        61,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "AMERICAN AIRLINES, LIABILITY FUND FOR LOSSES OCCURING BETWEEN 22ND DEC 2014 TO 22 DEC 2015",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "AMERICAN AIRLINES,PASSENGER SONYA DOCKETT,STRUCK BY LIGHTNING WHILE WALKING FROM TARMAC TO TERMINAL BUILDING,",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        28,
+                        41,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "AMERICAN AIRLINES,US AIRWAYS,PLAINTIFFS ALG INFANT WAS BURNED DURING FLIGHT 754,IN FLIGHT.",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        18,
+                        28,
+                        "ORG"
+                    ],
+                    [
+                        69,
+                        79,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "AMERICAN AIRLINES,PLAINTIFF ALLEGING RIGHT FEMUR FRACTURE,TOTAL RIGHT KNEE REPLACEMENT,HAIRLINE FRACTURE TO TIBIA,WOUNDS/ULCERS FROM CAST & DISLOCATED ANKLE ,",
+            {
+                "entities": [
+                    [
+                        0,
+                        17,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "CATHAY PACIFIC AIRWAYS LTD,DIVERSION OF FLIGHT CX884 DUE TO SMOKE IN THE CABIN,HONG KONG-LOS ANGELES,",
+            {
+                "entities": [
+                    [
+                        0,
+                        26,
+                        "ORG"
+                    ],
+                    [
+                        47,
+                        52,
+                        "VEHICLE"
+                    ],
+                    [
+                        79,
+                        88,
+                        "GPE"
+                    ],
+                    [
+                        89,
+                        100,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "KUWAIT AIRWAYS CORP,FLIGHT NO KU087,CARRYING MEDICAL DONATIONS CARGO,ON ARRIVAL FLIGHT PACK CONSISTING OF 139 ITEMS & TOOLS TO BE MISSING,KUWAIT.",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        30,
+                        35,
+                        "VEHICLE"
+                    ],
+                    [
+                        138,
+                        144,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "ETHIOPIAN A/L ENTERPRISE,WHILST LANDING IT VEERED OFF RUNWAY RESULTING IN NOSE WHEEL BEING SEVERED,GHANA.",
+            {
+                "entities": [
+                    [
+                        0,
+                        24,
+                        "ORG"
+                    ],
+                    [
+                        99,
+                        104,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "CIVIL AVIATION ADMINISTRATION OF CHINA,DAMAGE TO YIFENG JET BOMBARDIER CL605,SHENZHEN AIRPORT.",
+            {
+                "entities": [
+                    [
+                        0,
+                        38,
+                        "ORG"
+                    ],
+                    [
+                        49,
+                        76,
+                        "VEHICLE"
+                    ],
+                    [
+                        77,
+                        93,
+                        "LOC"
+                    ]
+                ]
+            }
+        ],
+        [
+            "CIVIL AVIATION ADMINISTRATION OF CHINA,AIRBUS A330 REGN B-5935 REPORTED DMG IN GROUND,GUIYANG AIRPORT.",
+            {
+                "entities": [
+                    [
+                        0,
+                        38,
+                        "ORG"
+                    ],
+                    [
+                        39,
+                        62,
+                        "VEHICLE"
+                    ],
+                    [
+                        86,
+                        101,
+                        "LOC"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "CIVIL AVIATION ADMINISTRATION OF CHINA,CHINA SOUTHERN AIRLINES CZ6002 & CHINA EASTERN AIRLINES MU2491 COLLIDED,",
+            {
+                "entities": [
+                    [
+                        0,
+                        38,
+                        "ORG"
+                    ],
+                    [
+                        39,
+                        62,
+                        "ORG"
+                    ],
+                    [
+                        63,
+                        69,
+                        "VEHICLE"
+                    ],
+                    [
+                        72,
+                        94,
+                        "ORG"
+                    ],
+                    [
+                        95,
+                        101,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "CIVIL AVIATION ADMINISTRATION OF CHINA,CHINA SOUTHERN AIRLINES CZ6002 & CHINA EASTERN AIRLINES MU2491 COLLIDED,",
+            {
+                "entities": [
+                    [
+                        0,
+                        38,
+                        "ORG"
+                    ],
+                    [
+                        39,
+                        62,
+                        "ORG"
+                    ],
+                    [
+                        63,
+                        69,
+                        "VEHICLE"
+                    ],
+                    [
+                        72,
+                        94,
+                        "ORG"
+                    ],
+                    [
+                        95,
+                        101,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "CIVIL AVIATION ADMINISTRATION OF CHINA,HAINAN AIRLINES,A330/B-5935 WERE REPORTED DMG IN GROUND INCIDENT,GUIYANG (LONGDONGBAO),",
+            {
+                "entities": [
+                    [
+                        0,
+                        38,
+                        "ORG"
+                    ],
+                    [
+                        39,
+                        54,
+                        "ORG"
+                    ],
+                    [
+                        55,
+                        66,
+                        "VEHICLE"
+                    ],
+                    [
+                        104,
+                        124,
+                        "LOC"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "ABM INDUSTRIES,AIR SERV CORP,US NON MEDICARE BLOCK FILE.",
+            {
+                "entities": [
+                    [
+                        0,
+                        14,
+                        "ORG"
+                    ],
+                    [
+                        15,
+                        28,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "BEIJING CAPITAL INTL,BOEING 787-8,REGN:B2768 DGED BY AIRBRIDGE,BEIJING.",
+            {
+                "entities": [
+                    [
+                        0,
+                        20,
+                        "ORG"
+                    ],
+                    [
+                        39,
+                        44,
+                        "VEHICLE"
+                    ],
+                    [
+                        53,
+                        62,
+                        "ORG"
+                    ],
+                    [
+                        63,
+                        70,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "BEIJING CAPITAL INTL AIRPORT GRP CO,THIRD PARTY EMIRATES HAINAN AIRLINES A300-200/B-6519 DMGD,",
+            {
+                "entities": [
+                    [
+                        0,
+                        35,
+                        "ORG"
+                    ],
+                    [
+                        48,
+                        56,
+                        "ORG"
+                    ],
+                    [
+                        57,
+                        72,
+                        "ORG"
+                    ],
+                    [
+                        73,
+                        88,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "PORT AUTHORITY OF NEW YORK AND NEW JERSEY,CLMNT KENIA CABRERA SUSTAINED AS A RESULT OF MOTOR VEHICLE ACCIDENT WITH SALT & SAND,",
+            {
+                "entities": [
+                    [
+                        0,
+                        41,
+                        "ORG"
+                    ],
+                    [
+                        48,
+                        61,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "HAECO,TRAFFIC ACCIDENT INVOLVING VEHICLE NO. PC78 (HAE-00500) & HAS's STR.",
+            {
+                "entities": [
+                    [
+                        0,
+                        5,
+                        "ORG"
+                    ],
+                    [
+                        45,
+                        49,
+                        "VEHICLE"
+                    ],
+                    [
+                        51,
+                        60,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TAECO, THIRD PARTY CATHAY PACIFIC B777-200,REG B-HNC DMGE TO MAIN LANDING GEAR, TAECO XIAMEN",
+            {
+                "entities": [
+                    [
+                        0,
+                        5,
+                        "ORG"
+                    ],
+                    [
+                        19,
+                        33,
+                        "ORG"
+                    ],
+                    [
+                        34,
+                        42,
+                        "VEHICLE"
+                    ],
+                    [
+                        80,
+                        85,
+                        "ORG"
+                    ],
+                    [
+                        86,
+                        92,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "TAECO,WIDESPREAD PITTING CORROSION DAMAGE TO AIRCRAFT JA8887 AFTER PAINT REMOVAL,SHANDONG.",
+            {
+                "entities": [
+                    [
+                        0,
+                        5,
+                        "ORG"
+                    ],
+                    [
+                        54,
+                        60,
+                        "VEHICLE"
+                    ],
+                    [
+                        81,
+                        89,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TAECO, THIRD PARTY CATHAY PACIFIC REGN.B-HNA - NO.1 ENGINE SUSTAINED HEAT DAMAGE.NAGOYA, JAPAN",
+            {
+                "entities": [
+                    [
+                        0,
+                        5,
+                        "ORG"
+                    ],
+                    [
+                        19,
+                        33,
+                        "ORG"
+                    ],
+                    [
+                        81,
+                        94,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "FRONTIER FLYING SERVICE INC,PIPER NAVAJO,CLMNT ALICE SWAN SLIPPED & FELL FROM AIR STAIR,KOTZEBUE,AK.",
+            {
+                "entities": [
+                    [
+                        0,
+                        27,
+                        "ORG"
+                    ],
+                    [
+                        28,
+                        40,
+                        "VEHICLE"
+                    ],
+                    [
+                        47,
+                        57,
+                        "PERSON"
+                    ],
+                    [
+                        88,
+                        100,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "LINEA AEREA AMASZONAS, CAPTAIN ALVAREZ SUFFERED INJURY AND RELATED MEDICAL EXPENSES FOLLOWING AN IN FLIGHT BIRDSTRIKE, BOLIVIA",
+            {
+                "entities": [
+                    [
+                        0,
+                        21,
+                        "ORG"
+                    ],
+                    [
+                        23,
+                        38,
+                        "PERSON"
+                    ],
+                    [
+                        119,
+                        126,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "LINEA AEREA AMASZONAS, CAPTAIN ALVAREZ SUFFERED INJURY AND RELATED MEDICAL EXPENSES FOLLOWING AN IN FLIGHT BIRDSTRIKE, BOLIVIA",
+            {
+                "entities": [
+                    [
+                        0,
+                        21,
+                        "ORG"
+                    ],
+                    [
+                        23,
+                        38,
+                        "PERSON"
+                    ],
+                    [
+                        119,
+                        126,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "BRISTOW GROUP,SIKORSKT-92, REGN; G-CIGZ, SUSTAINED DMG TO CT7 ENGINE,ABERDEEN,SCOTLAND.",
+            {
+                "entities": [
+                    [
+                        0,
+                        13,
+                        "ORG"
+                    ],
+                    [
+                        14,
+                        25,
+                        "VEHICLE"
+                    ],
+                    [
+                        69,
+                        86,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "TEXTRON INC,BEECHCRAFT KING AIR 200 CRASH INTO BUILDING AFTER TAKE OFF,WICHITA MID CONTINENT AIRPORT.",
+            {
+                "entities": [
+                    [
+                        0,
+                        11,
+                        "ORG"
+                    ],
+                    [
+                        12,
+                        35,
+                        "VEHICLE"
+                    ],
+                    [
+                        71,
+                        100,
+                        "LOC"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "THE BOEING CO,AIR ALGERIE MD 83 EC LTV DMG,GOSSI MALI.",
+            {
+                "entities": [
+                    [
+                        0,
+                        13,
+                        "ORG"
+                    ],
+                    [
+                        14,
+                        25,
+                        "ORG"
+                    ],
+                    [
+                        26,
+                        34,
+                        "VEHICLE"
+                    ],
+                    [
+                        43,
+                        53,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "BOEING CO,JAMCO EMPLOYEE FATALLY INJD WHILST REPLACING SEATBELT AIRBAG ASSEMBLY IN FIRST CLASS CABIN,",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORG"
+                    ],
+                    [
+                        10,
+                        15,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "BOEING CO,DMG TO ASIANA AIRLINES A320-232 DUE TO CRASH LANDING,HIROSHIMA AIRPORT,JAPAN.",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORG"
+                    ],
+                    [
+                        17,
+                        32,
+                        "ORG"
+                    ],
+                    [
+                        33,
+                        41,
+                        "VEHICLE"
+                    ],
+                    [
+                        63,
+                        87,
+                        "LOC"
+                    ]
+                ]
+            }
+        ],
+        [
+            "CURTISS WRIGHT CORP,AN APACHE AH-64D HELICOPTER OPERATED BY DUTCH MILITARY CRASHED IN MALI,",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        23,
+                        29,
+                        "ORG"
+                    ],
+                    [
+                        30,
+                        47,
+                        "VEHICLE"
+                    ],
+                    [
+                        60,
+                        74,
+                        "ORG"
+                    ],
+                    [
+                        86,
+                        90,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "BOEING CO,SOUTHWEST AIRLINES B737-800 REG.N8647A EXPERIENCED CABIN DECOMPRESSURIZATION,HAD TO MAKE EMERGENCY LANDING,",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORG"
+                    ],
+                    [
+                        10,
+                        28,
+                        "ORG"
+                    ],
+                    [
+                        29,
+                        37,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "BOEING CO,U.S.M.C MV-22B CRASHED DURING LANDING,OAHU,HAWAII.",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORG"
+                    ],
+                    [
+                        10,
+                        17,
+                        "ORG"
+                    ],
+                    [
+                        18,
+                        24,
+                        "VEHICLE"
+                    ],
+                    [
+                        48,
+                        59,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "BOEING CO,AMERICAN AIRLINES FLIGHT 953 SUDDEN DROP FO APPROX 3,000 FEET MID FLIGHT,VARS PASSENGERS & CREW INJURED,",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "ORG"
+                    ],
+                    [
+                        10,
+                        27,
+                        "ORG"
+                    ],
+                    [
+                        28,
+                        38,
+                        "VEHICLE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "LEFIELL MANUFACTURING CO,ALGD SUPPLY OF A DEFECTIVE F117 LOW PRESSURE TURBINE SHAFT TO UTC,",
+            {
+                "entities": [
+                    [
+                        0,
+                        24,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "MECAER AVIATION GROUP, AW139 REGISTRATION MARK N1NJ SUFFERED DMGS TO THE TAIL BOOM, ROTOR AND SERVO INPUT LEVER, NORTHEAST PHILADELPHIA AIRPORT",
+            {
+                "entities": [
+                    [
+                        0,
+                        21,
+                        "ORG"
+                    ],
+                    [
+                        113,
+                        143,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "MECAER AVIATION GRP,AIRCRAFT EA 500 SUFFERED COLLAPSED LEFT LANDING GEAR WHILE TAXING,SACRAMENTO EXECUTIVE AIRPORT,",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        29,
+                        35,
+                        "VEHICLE"
+                    ],
+                    [
+                        86,
+                        114,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TEXTRON INC,BEECHCRAFT KING AIR 200 CRASH INTO BUILDING AFTER TAKE OFF,WICHITA MID CONTINENT AIRPORT.",
+            {
+                "entities": [
+                    [
+                        0,
+                        11,
+                        "ORG"
+                    ],
+                    [
+                        12,
+                        35,
+                        "VEHICLE"
+                    ],
+                    [
+                        71,
+                        100,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TRANSDIGM GROUP INC, WRONGFUL DEATH CLAIM OF GREEN BERET CAPTAIN JAMES AHN WHEN HIS MC-4 PARACHUTE MALFUNCTIONED DURING, SHELTON WA",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        121,
+                        131,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TRANSDIGM GROUP INC,CODY GIBSON,CATASTROPHICALLY INJURED WHEN HIS T-11 PARACHUTE SYSTEM FAILED TO OPEN,FORT BRAGG,NORTH CAROLINA.",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        20,
+                        31,
+                        "PERSON"
+                    ],
+                    [
+                        103,
+                        128,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TRANSDIGM GROUP INC, PRODUCTS LIABILITY ACTION FOR WRONGFUL DEATH FOLLOWING PLANE CRASH, EL CAJON CA",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        89,
+                        100,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TRANSDIGM GROUP INC,VEHICLE COLLISION,CHICAGO,ILLINOIS.",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        38,
+                        54,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "TRANSDIGM GROUP INC,ESTATE OF PHIL JAMES DRYDEN CRASH OF CESSNA 182T AIRCRAFT N784CP,MOBILE REGIONAL AIRPORT IN ALABAMA. ",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        30,
+                        40,
+                        "PERSON"
+                    ],
+                    [
+                        78,
+                        84,
+                        "VEHICLE"
+                    ],
+                    [
+                        85,
+                        119,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "PRECISION AIRCRAFT SOLUTIONS,LLC,DAVID LAMBERT,CLMNT HIRED BY AERO AIR LLC TO WORK ON CARGO DOOR ASSEMBLY PROJECT WHEN HE FELL FROM PLATFORM,",
+            {
+                "entities": [
+                    [
+                        0,
+                        28,
+                        "ORG"
+                    ],
+                    [
+                        33,
+                        46,
+                        "PERSON"
+                    ],
+                    [
+                        62,
+                        74,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "GENCORP,AEROJET ROCKETDYNE,VERTICAL PLAN,USA.",
+            {
+                "entities": [
+                    [
+                        0,
+                        7,
+                        "ORG"
+                    ],
+                    [
+                        8,
+                        26,
+                        "ORG"
+                    ],
+                    [
+                        27,
+                        40,
+                        "ORG"
+                    ],
+                    [
+                        41,
+                        44,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "SABRELINER AVIATION LLC,DAWN BAKER LAWSUIT,FLIGHT BREAK UP & CRASH OF A CESSNA 525 OPERATED BY DONALD BAKER,CRASH RESULTED IN DEATH OF DAWN BAKER,",
+            {
+                "entities": [
+                    [
+                        0,
+                        23,
+                        "ORG"
+                    ],
+                    [
+                        95,
+                        107,
+                        "PERSON"
+                    ],
+                    [
+                        135,
+                        145,
+                        "PERSON"
+                    ]
+                ]
+            }
+        ],
+        [
+            "SABRELINER AVIATION LLC,COMPLAINT SERVED AGAINST SIERRA INDUSTRIES & INNOVA AEROPSACE FOR DMGS ARISING FROM BREACH OF CONTRACT.",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        49,
+                        85,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "TAILWIND TECHNOLOGIES,TAILWIND HARTZELL,RAYTHEON KINGAIR B200,N52SZ SUFFERED POWER LOSS ON TAKEOFF,USA.",
+            {
+                "entities": [
+                    [
+                        0,
+                        21,
+                        "ORG"
+                    ],
+                    [
+                        22,
+                        39,
+                        "ORG"
+                    ],
+                    [
+                        40,
+                        61,
+                        "VEHICLE"
+                    ],
+                    [
+                        62,
+                        67,
+                        "VEHICLE"
+                    ],
+                    [
+                        99,
+                        103,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "ROLLS ROYCE PLC,ACCIDENT INVOLVING A400M (MSN023) IN SEVILLE.",
+            {
+                "entities": [
+                    [
+                        0,
+                        15,
+                        "ORG"
+                    ],
+                    [
+                        42,
+                        48,
+                        "VEHICLE"
+                    ],
+                    [
+                        50,
+                        60,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "ROLLS ROYCE PLC,BELL 206L CRASHED WHILST BEING USED FOR CONTROLLED FOREST BURNING,MISSISSIPPI,",
+            {
+                "entities": [
+                    [
+                        0,
+                        15,
+                        "ORG"
+                    ],
+                    [
+                        16,
+                        25,
+                        "VEHICLE"
+                    ],
+                    [
+                        82,
+                        93,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "ROLLS ROYCE, ENGINE FAILURE LED TO HARD LANDING, CRESCO, IOWA",
+            {
+                "entities": [
+                    [
+                        0,
+                        11,
+                        "ORG"
+                    ],
+                    [
+                        49,
+                        61,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Various Losses Block Entry",
+            {
+                "entities": []
+            }
+        ],
+        [
+            "GENERAL ELECTRIC CO,BRITISH AIRWAYS FLIGHT 2276 EXPERIENCED 1 ENGINE FAILURE DURING TAKEOFF,LAS VEGAS.",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        20,
+                        47,
+                        "VEHICLE"
+                    ],
+                    [
+                        92,
+                        101,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "GENERAL ELECTRIC CO,MAGNESTOS WAS SUBSTANTIALLY DMGD AFTER FORCED LANDING IN STEPHENVILLE,TEXAS.",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ],
+                    [
+                        77,
+                        95,
+                        "GPE"
+                    ]
+                ]
+            }
+        ],
+        [
+            "GENERAL ELECTRIC CO,TECHNOAVIA SMG-92 (JA-YDJ) EQUIPPED WITH A WALTER M601D ENGINE LOST POWER SHORTLY AFTER TAKE-OFF,",
+            {
+                "entities": [
+                    [
+                        0,
+                        19,
+                        "ORG"
+                    ]
+                ]
+            }
+        ],
+        [
+            "Default Event for LimClm Created Claims",
+            {
+                "entities": []
+            }
+        ]
+    ]
+}

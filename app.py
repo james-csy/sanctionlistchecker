@@ -54,7 +54,6 @@ def readUpdatedSanctionList():
     return names
 
 
-
 #extracts names from sanction lists and outputs list of names
 def readSanctionList():
         with open('files/sdn.csv', mode='r') as csv_file:
