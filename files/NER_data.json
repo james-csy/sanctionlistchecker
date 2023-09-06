@@ -7,27 +7,8 @@
         "VEHICLE"
     ],
     "annotations": [
-        [
-            "AMERICAN AIRLINES,US AIRWAYS,AIRCRAFT N953UW,EMBRAER E190 SUFFERED DMG WHILST LANDING,",
-            {
-                "entities": [
-                    [
-                        0,
-                        17,
-                        "ORG"
-                    ],
-                    [
-                        18,
-                        28,
-                        "ORG"
-                    ],
-                    [
-                        38,
-                        44,
-                        "VEHICLE"
-                    ]
-                ]
-            }
+        ["AMERICAN AIRLINES,US AIRWAYS,AIRCRAFT N953UW,EMBRAER E190 SUFFERED DMG WHILST LANDING,",
+            {"entities": [[0,17,"ORG"],[18,28,"ORG"],[38,44,"VEHICLE"]]}
         ],
         [
             "AMERICAN AIRLINES, Aircraft Boeing 787 Regn N805AN suffered damage due to hail, Beijing, China",
